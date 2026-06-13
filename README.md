@@ -65,7 +65,13 @@ All nodes run **AlmaLinux 9** (binary-compatible RHEL 9 replacement).
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/h
+git clone https://github.com/<your-username>/rh294-lab.git
+cd rh294-lab
+```
+
+### 2. Boot the Lab Environment
+
+```bash
 vagrant up
 ```
 
@@ -196,11 +202,15 @@ git checkout -b section-05-task-control
 | Symptom | Fix |
 |---------|-----|
 | `vagrant up` fails on box download | Check your internet connection; try `vagrant box add almalinux/9` manually |
-| `ansible allmands as the `ansible` user in `/home/ansi-/almalinux.org)
-- [Vagrant Docs](https://developer.hashicorp.com/vagrant/docs)<your-username>/rh294-lab.git
-cd rh294-lab
-```
+| `ansible all -m ping` returns `UNREACHABLE` | Verify SSH keys were copied; check `~/.ssh/known_hosts` |
+| Permission denied on managed node | Confirm `/etc/sudoers.d/ansible` exists with `NOPASSWD:ALL` |
+| `ansible.cfg` not found | Ensure you are running `ansible` commands as the `ansible` user in `/home/ansible` |
 
-### 2. Boot the Lab Environment
+---
 
-```bash
+## Resources
+
+- [Red Hat EX294 Exam Objectives](https://www.redhat.com/en/services/training/ex294-red-hat-certified-engineer-rhce-exam-red-hat-enterprise-linux-9)
+- [Ansible Documentation](https://docs.ansible.com)
+- [AlmaLinux Project](https://almalinux.org)
+- [Vagrant Docs](https://developer.hashicorp.com/vagrant/docs)
